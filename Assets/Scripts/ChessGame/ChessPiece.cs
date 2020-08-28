@@ -206,19 +206,24 @@ public class ChessPiece : MonoBehaviour
 
     IEnumerator FadeAlphaTo(float aEnd, float time)
     {
-        float aStart = rdr.material.color.a;
+        Color startColor = new Color(
+            rdr.material.color.r,
+            rdr.material.color.g,
+            rdr.material.color.b,
+            rdr.material.color.a
+        );
 
         // Transition to the desired value
         for (float t=0; t<1.0f; t+=Time.deltaTime/time)
         {
-            Color color = new Color(1, 1, 1, Mathf.Lerp(aStart, aEnd, t));
+            Color color = new Color(startColor.r, startColor.g, startColor.b, Mathf.Lerp(startColor.a, aEnd, t));
             rdr.material.color = color;
 
             yield return null;
         }
 
         // At the end, set it to the exact value
-        rdr.material.color = new Color(1, 1, 1, aEnd);
+        rdr.material.color = new Color(startColor.r, startColor.g, startColor.b, aEnd);
     }
 
     public void ClearPossibleMoves()

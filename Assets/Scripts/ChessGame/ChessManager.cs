@@ -449,7 +449,7 @@ public class ChessManager : MonoBehaviour, ICustomStart
                 }
             }
 
-            piece.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            piece.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             piece.transform.position = new Vector3(newPos.x, piece.transform.position.y, newPos.z);
             piece.Lock();
 
