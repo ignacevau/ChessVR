@@ -133,7 +133,13 @@ public class ChessPiece : MonoBehaviour
     public void Die()
     {
         gameObject.SetActive(false);
+        SpawnParticles();
         //Instantiate(char.IsUpper(Type[0]) ? chessMgr.ShattersWhite : chessMgr.ShattersBlack, transform.position, Quaternion.identity, chessMgr.ShatterParent);
+    }
+
+    private void SpawnParticles()
+    {
+        DeathParticles.Instance.Play(transform.position);
     }
 
     public void GrabEnter()

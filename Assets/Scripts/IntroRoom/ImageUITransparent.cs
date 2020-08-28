@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Insok_ImageUITransparent : MonoBehaviour
+public class ImageUITransparent : MonoBehaviour
 {
     public Image img;
 

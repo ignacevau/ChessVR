@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GlobalData;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Util;
@@ -384,7 +385,7 @@ public class ChessManager : MonoBehaviour, ICustomStart
             Animator anim = piece.transform.GetChild(1).GetComponent<Animator>();
 
             float currentTime = 0f;
-            float timeToMove = 2.5f * Vector3.Distance(GetWorldPosFromCoord(start), GetWorldPosFromCoord(end));
+            float timeToMove = Data.PieceMoveTime * Vector3.Distance(GetWorldPosFromCoord(start), GetWorldPosFromCoord(end));
 
             piece.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
 

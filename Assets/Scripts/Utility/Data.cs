@@ -6,6 +6,7 @@ namespace GlobalData
 {
 	public static class Data
 	{
+		public static float PieceMoveTime { get; set; } = 5f;
 		public static int TableHeight { get; set; } = 2;
 		public static int maxTableHeight { get; } = 5;
 		public static int minTableHeight { get; } = 0;
