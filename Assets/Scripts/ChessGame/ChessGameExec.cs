@@ -21,33 +21,32 @@ public class ChessGameExec : MonoBehaviour {
 
     public static async void ExecuteCommand(string FEN, string nextMove)
     {
-        Debug.LogWarning("Fen input is: " + FEN);
-        Debug.LogWarning("next move input is: " + nextMove);
-        System.Diagnostics.Process p = new System.Diagnostics.Process();
-        p.StartInfo.FileName = ChessGamePath;
-        p.StartInfo.UseShellExecute = false;
-        p.StartInfo.CreateNoWindow = true;
-        p.StartInfo.RedirectStandardError = true;
-        p.StartInfo.RedirectStandardInput = true;
-        p.StartInfo.RedirectStandardOutput = true;
-        p.Start();
+        //Debug.LogWarning("Fen input is: " + FEN);
+        //Debug.LogWarning("next move input is: " + nextMove);
+        //System.Diagnostics.Process p = new System.Diagnostics.Process();
+        //p.StartInfo.FileName = ChessGamePath;
+        //p.StartInfo.UseShellExecute = false;
+        //p.StartInfo.CreateNoWindow = true;
+        //p.StartInfo.RedirectStandardError = true;
+        //p.StartInfo.RedirectStandardInput = true;
+        //p.StartInfo.RedirectStandardOutput = true;
+        //p.Start();
 
-        p.StandardInput.WriteLine(FEN);
-        p.StandardInput.WriteLine(nextMove);
+        //p.StandardInput.WriteLine(FEN);
+        //p.StandardInput.WriteLine(nextMove);
 
-        ChessGameExecOutput output = new ChessGameExecOutput();
 
-        // First output line contains all possible moves
-        string moves = await p.StandardOutput.ReadLineAsync();
-        output.PossibleMoves = moves.Split(',');
+        ////First output line contains all possible moves
+        //string moves = await p.StandardOutput.ReadLineAsync();
+        ////output.PossibleMoves = moves.Split(',');
 
-        // Second output line contains the new FEN notation
-        string fen = await p.StandardOutput.ReadLineAsync();
-        output.FEN = fen;
+        ////Second output line contains the new FEN notation
+        //string fen = await p.StandardOutput.ReadLineAsync();
+        ////output.FEN = fen;
 
-        ChessManager.UpdatedChessGameOutput = output;
-        Debug.LogWarning("Output exec generated!");
 
-        p.Close();
+        //Debug.LogWarning("Output exec generated!");
+
+        //p.Close();
     }
 }

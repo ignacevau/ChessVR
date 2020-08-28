@@ -190,15 +190,9 @@ public class ChessManager : MonoBehaviour, ICustomStart
         piece.Coords.x = end.x;
         piece.Coords.y = end.y;
 
-        //if(IsOpponentPiece(piece))
-        //    CheckPlayerChecked();
+        ChessDotNetManager.MakeMove(CoordToAlg(start), CoordToAlg(end));
 
-        // Update game data (FEN notation, all possible moves)
-        string nextMove = CoordToAlg(start) + CoordToAlg(end);      // Algebraic format for ChessGameExec, e.g. c3c4
-        Debug.LogWarning("Next move is: " + nextMove + ", with start coord: (" + start.x + ", " + start.y + "), and end coord: (" + end.x + ", " + end.y + ")");
-        // ChessGameExec takes a coded string
-        Debug.LogWarning("Starting exec IEnumerator");
-        StartCoroutine(IUpdateChessGameExec(getCodedChessGameExecData(FEN_Notation, nextMove)));
+        UpdateGameData(UpdatedChessGameOutput.FEN, UpdatedChessGameOutput.PossibleMoves);
     }
 
     void CastleKingWhite()
@@ -276,21 +270,22 @@ public class ChessManager : MonoBehaviour, ICustomStart
         StartCoroutine(MovePiece(AlgToCoord(AIOutput.Substring(0, 2)), AlgToCoord(AIOutput.Substring(2, 2))));
     }
 
-    IEnumerator IUpdateChessGameExec(string codedString)
-    {
-        UpdatedChessGameOutput.FEN = null;
-        Debug.LogWarning("Encoded string sent to exec is: " + codedString);
-        ThreadedJob.ChessGameUpdateData(codedString);
+    //IEnumerator IUpdateChessGameExec(string codedString)
+    //{
+    //    //Debug.LogError("Called");
+    //    //UpdatedChessGameOutput.FEN = null;
+    //    //Debug.LogWarning("Encoded string sent to exec is: " + codedString);
+    //    //ThreadedJob.ChessGameUpdateData(codedString);
 
-        while (UpdatedChessGameOutput.FEN == null)
-        {
-            yield return null;
-        }
+    //    //while (UpdatedChessGameOutput.FEN == null)
+    //    //{
+    //    //    yield return null;
+    //    //}
 
-        Debug.LogWarning("Output successfully received!");
-
-        UpdateGameData(UpdatedChessGameOutput.FEN, UpdatedChessGameOutput.PossibleMoves);
-    }
+    //    //Debug.LogWarning("Output successfully received!");
+    //    UpdateGameData(UpdatedChessGameOutput.FEN, UpdatedChessGameOutput.PossibleMoves);
+    //    yield return null;
+    //}
 
     private void UpdateGameData(string FEN, string[] possibleMoves)
     {
