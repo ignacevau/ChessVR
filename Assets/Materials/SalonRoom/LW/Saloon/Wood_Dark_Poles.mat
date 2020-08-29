@@ -68,7 +68,7 @@ Material:
     - _Brightness: 5.3
     - _BumpScale: 1
     - _ColorToggle: 1
-    - _Contrast: 1.84
+    - _Contrast: 1.58
     - _Cutoff: 0.5
     - _Detail: 0
     - _DetailNormalMapScale: 1
@@ -97,4 +97,4 @@ Material:
     - _Color: {r: 0.9372549, g: 0.877559, b: 0.8510274, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _PointLightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _PointLightPosition: {r: -5.7, g: 33.49, b: 0, a: 1}
+    - _PointLightPosition: {r: -7.47, g: 33.49, b: 0, a: 1}

@@ -65,10 +65,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AmbiencePower: 0.54
-    - _Brightness: 1
+    - _Brightness: 2.3
     - _BumpScale: 1
     - _ColorToggle: 1
-    - _Contrast: 1
+    - _Contrast: 1.14
     - _Cutoff: 0.5
     - _Detail: 0
     - _DetailNormalMapScale: 1
