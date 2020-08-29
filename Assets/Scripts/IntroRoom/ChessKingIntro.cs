@@ -73,6 +73,8 @@ public class ChessKingIntro : MonoBehaviour
         joint.highAngularXLimit = highAngularXLimit;
         joint.angularYLimit = angularYLimit;
         joint.angularZLimit = angularZLimit;
+
+        joint.breakForce = 200;
     }
 
     public void Unlock()
@@ -154,5 +156,10 @@ public class ChessKingIntro : MonoBehaviour
 
         xrGrabEvent.grabbable = true;
         Lock();
+    }
+
+    private void OnJointBreak(float breakForce)
+    {
+        RestorePiece();
     }
 }
