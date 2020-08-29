@@ -42,7 +42,7 @@ public class Insok_XRGrabControl : MonoBehaviour
     private void Update()
     {
         // Check for grab
-        if (isGrabButtonDown())
+        if (isGrabButtonDown() && Data.grabbedObject == null)
         {
             if (!isGrabbing && isHovering)
                 GrabObject(hoverObject);
