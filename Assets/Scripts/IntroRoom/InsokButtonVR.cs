@@ -14,6 +14,8 @@ public class InsokButtonVR : MonoBehaviour
     [SerializeField] private float PressClampMin;
     private float PressClampMax;
 
+    private bool isHandTouching = false;
+
     private void Start()
     {
         PressClampMax = transform.localPosition.y;
@@ -21,6 +23,12 @@ public class InsokButtonVR : MonoBehaviour
 
     private void Update()
     {
+        if(pressed && isHandTouching)
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x, PressClampMax + PressClampMin, transform.localPosition.z);
+            return;
+        }
+
         transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Clamp(transform.localPosition.y, PressClampMax, PressClampMax + PressClampMin), transform.localPosition.z);
 
         if (!pressed)
@@ -37,6 +45,25 @@ public class InsokButtonVR : MonoBehaviour
             if (Mathf.Abs(transform.localPosition.y - PressClampMax) < 0.01f)
             {
                 pressed = false;
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.gameObject.CompareTag("Hand"))
+        {
+            isHandTouching = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (isHandTouching)
+        {
+            if (other.collider.gameObject.CompareTag("Hand"))
+            {
+                isHandTouching = false;
             }
         }
     }

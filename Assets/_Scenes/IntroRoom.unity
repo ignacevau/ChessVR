@@ -1386,7 +1386,7 @@ GameObject:
   - component: {fileID: 498533091}
   m_Layer: 0
   m_Name: RightHand Controller
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6980,7 +6980,7 @@ GameObject:
   - component: {fileID: 673114927}
   m_Layer: 0
   m_Name: Fingers
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13017,6 +13017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1383896831}
   - component: {fileID: 1383896832}
+  - component: {fileID: 1383896833}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -13071,6 +13072,18 @@ MonoBehaviour:
   - {fileID: 745575680}
   SceneTransitionImage: {fileID: 1464938648}
   chessKing: {fileID: 7296694064128518840}
+--- !u!114 &1383896833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383896830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ae28087214ace4fa7e403028c87fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1392158479
 GameObject:
   m_ObjectHideFlags: 0
@@ -13552,7 +13565,7 @@ GameObject:
   - component: {fileID: 1441450590}
   m_Layer: 0
   m_Name: Palm
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13597,7 +13610,7 @@ GameObject:
   - component: {fileID: 1456947350}
   m_Layer: 0
   m_Name: Fingers
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13747,7 +13760,7 @@ GameObject:
   - component: {fileID: 1538318623}
   m_Layer: 0
   m_Name: Palm
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14599,7 +14612,7 @@ GameObject:
   - component: {fileID: 1854402163}
   m_Layer: 0
   m_Name: Hand_Left
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

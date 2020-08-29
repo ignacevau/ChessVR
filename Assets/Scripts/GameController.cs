@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
         Recenter();
     }
 
-    public void Recenter()
+    public static void Recenter()
     {
         List<XRInputSubsystem> subsystems = new List<XRInputSubsystem>();
         SubsystemManager.GetInstances<XRInputSubsystem>(subsystems);
