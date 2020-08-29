@@ -48,7 +48,6 @@ public class StockFish : MonoBehaviour {
                 _newMove = _stripped[1];
             }
         }
-        Debug.Log("Best move is: " + _newMove);
         ChessManager.AIOutput = _newMove;
 
         p.Close();

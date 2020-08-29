@@ -120,7 +120,6 @@ public class ChessPiece : MonoBehaviour
                 capturedPiece.Die();
             }
 
-            Debug.LogWarning("ChessPiece: start: " + Coords.x + ", " + Coords.y + " and end: " + newCoords.x + ", " + newCoords.y);
             chessMgr.UpdatePiecePosition(Coords.Clone(), newCoords);
         }
     }

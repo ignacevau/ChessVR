@@ -86,7 +86,6 @@ public class ChessKingIntro : MonoBehaviour
 
     public void EndGrab()
     {
-        Debug.LogWarning("EndGrab");
         if(HoveringOverEnd)
         {
             UI_Intro.StartGame();

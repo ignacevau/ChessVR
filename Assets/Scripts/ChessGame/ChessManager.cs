@@ -135,7 +135,6 @@ public class ChessManager : MonoBehaviour, ICustomStart
 
     public void UpdatePiecePosition(Coord start, Coord end)
     {
-        Debug.LogWarning("start coord: (" + start.x + ", " + start.y + "), and end coord: (" + end.x + ", " + end.y + ")");
         ChessPiece piece = Board[start.x][start.y];
 
         // Check for white castling
@@ -362,7 +361,6 @@ public class ChessManager : MonoBehaviour, ICustomStart
 
     IEnumerator MovePiece(Coord start, Coord end)
     {
-        Debug.LogWarning("MovePiece --- start coord: " + start.x + ", " + start.y + " and end coord: " + end.x + ", " + end.y);
         ChessPiece piece = Board[start.x][start.y];
         if (piece == null)
             Debug.LogError("Ah shit here we go again");
@@ -416,7 +414,6 @@ public class ChessManager : MonoBehaviour, ICustomStart
                 }
                 else if (!die)
                 {
-                    Debug.Log("die");
                     yield return null;
                 }
                 else if (!dead)
