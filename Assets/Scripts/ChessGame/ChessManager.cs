@@ -5,6 +5,9 @@ using UnityEngine;
 using Util;
 using static Util.Util;
 
+// Disable the "Field not assigned" warnings
+#pragma warning disable 0649
+
 public class ChessManager : MonoBehaviour, ICustomStart
 {
     // First is horizontal, second vertical  -->  usage is: Board[x][y]

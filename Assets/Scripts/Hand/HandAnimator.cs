@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
+// Disable the "Field not assigned" warnings
+#pragma warning disable 0649
+
 public class HandAnimator : MonoBehaviour
 {
     public float speed = 5.0f;

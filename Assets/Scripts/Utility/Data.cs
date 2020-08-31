@@ -12,6 +12,5 @@ namespace GlobalData
 		public static int minTableHeight { get; } = 0;
 		public static float MoveTableFactor { get; } = 0.1f;
 		public static GameObject grabbedObject { get; set; }
-
 	}
 }

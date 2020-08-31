@@ -4,6 +4,9 @@ using UnityEngine;
 using GlobalData;
 using Util;
 
+// Disable the "Field not assigned" warnings
+#pragma warning disable 0649
+
 public class ManageTableHeight : MonoBehaviour, ICustomStart
 {
     [SerializeField] private GameObject TableTop;

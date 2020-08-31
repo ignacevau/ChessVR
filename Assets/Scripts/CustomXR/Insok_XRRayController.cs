@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Insok_XRRayController : MonoBehaviour
 {
-    public bool enabled = true;
+    new public bool enabled = true;
 
     private XRController controller;
     public LineRenderer lineRdr;

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Util
 {
@@ -9,6 +10,8 @@ namespace Util
     {
         void CustomStart();
     }
+
+    public class UnityEvent_Collider : UnityEvent<Collider> { };
 
     public class Util
     {

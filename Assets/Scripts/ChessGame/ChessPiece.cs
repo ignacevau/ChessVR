@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Util.Util;
 
+// Disable the "Field not assigned" warnings
+#pragma warning disable 0649
+
 public class ChessPiece : MonoBehaviour
 {
     ConfigurableJoint joint;

@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using Util;
 
+// Disable the "Field not assigned" warnings
+#pragma warning disable 0649
+
 public class Main : MonoBehaviour
 {
     [SerializeField] UnityEvent customStart;

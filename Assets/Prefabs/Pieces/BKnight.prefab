@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5668471215897938552}
   - component: {fileID: 4882052855901586846}
   - component: {fileID: 1962115030843946921}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BKnight
   m_TagString: ChessPiece
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5558972046326126050}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.0066293166, y: 0.0060074427, z: 0.04212667}
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 2226497807547730445}
   - component: {fileID: 634215166765511146}
   - component: {fileID: 8434827356176739823}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

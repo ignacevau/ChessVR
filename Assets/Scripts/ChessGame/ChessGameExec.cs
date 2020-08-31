@@ -19,8 +19,8 @@ public class ChessGameExec : MonoBehaviour {
         ChessGamePath = Application.streamingAssetsPath + "/ChessGame";
     }
 
-    public static async void ExecuteCommand(string FEN, string nextMove)
-    {
+    //public static async void ExecuteCommand(string FEN, string nextMove)
+    //{
         //Debug.LogWarning("Fen input is: " + FEN);
         //Debug.LogWarning("next move input is: " + nextMove);
         //System.Diagnostics.Process p = new System.Diagnostics.Process();
@@ -48,5 +48,5 @@ public class ChessGameExec : MonoBehaviour {
         //Debug.LogWarning("Output exec generated!");
 
         //p.Close();
-    }
+    //}
 }

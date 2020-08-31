@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR; //needs to be UnityEngine.VR in version before 2017.2
+using UnityEngine.XR.Interaction.Toolkit;
+
+// Disable the "Field not assigned" warnings
+#pragma warning disable 0649
 
 public class HandGrabbing : MonoBehaviour
 {
-
+    private XRController controller;
     public string InputName;
     public XRNode NodeType;
     public Vector3 ObjectGrabOffset;
@@ -22,6 +26,11 @@ public class HandGrabbing : MonoBehaviour
     private Transform originalParent;
     private Transform pivotParent;
 
+    private void Awake()
+    {
+        controller = GetComponent<XRController>();
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -34,8 +43,14 @@ public class HandGrabbing : MonoBehaviour
     void Update()
     {
         //update hand position and rotation
-        transform.localPosition = InputTracking.GetLocalPosition(NodeType);
-        transform.localRotation = InputTracking.GetLocalRotation(NodeType);
+        Vector3 localPos;
+        Quaternion localRot;
+
+        controller.inputDevice.TryGetFeatureValue(CommonUsages.devicePosition, out localPos);
+        controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceRotation, out localRot);
+
+        transform.localPosition = localPos;
+        transform.localRotation = localRot;
 
 
         //if we don't have an active object in hand, look if there is one in proximity

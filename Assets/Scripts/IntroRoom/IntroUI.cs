@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using GlobalData;
 
+// Disable the "Field not assigned" warnings
+#pragma warning disable 0649
+
 public class IntroUI : MonoBehaviour
 {
     [SerializeField] private Transform Table;

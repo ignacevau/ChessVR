@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Disable the "Field not assigned" warnings
+#pragma warning disable 0649
+
 public class AudioController : MonoBehaviour
 {
     [SerializeField] private AudioClip AudioInvalidMove;
     [SerializeField] private AudioClip AudioPieceMove;
     [SerializeField] private AudioClip AudioPieceBreak;
 
-    private AudioSource audio;
+    new private AudioSource audio;
 
     private void Update()
     {

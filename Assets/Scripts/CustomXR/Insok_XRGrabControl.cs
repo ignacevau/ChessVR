@@ -5,6 +5,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 using Util;
 using GlobalData;
 using Extensions;
+using UnityEngine.Events;
+using System;
+
+// Disable the "Field not assigned" warnings
+#pragma warning disable 0649
 
 public class Insok_XRGrabControl : MonoBehaviour
 {
@@ -14,6 +19,20 @@ public class Insok_XRGrabControl : MonoBehaviour
         Fist,
         PinchAndFist
     };
+
+    public enum HandSide
+    {
+        Right, Left
+    };
+
+    [SerializeField]
+    public HandSide handSide;
+
+    public UnityEvent_Collider TriggerEnterEvent = new UnityEvent_Collider();
+    public UnityEvent_Collider TriggerExitEvent = new UnityEvent_Collider();
+
+    public UnityEvent_Collider GrabEnterEvent = new UnityEvent_Collider();
+    public UnityEvent_Collider GrabExitEvent = new UnityEvent_Collider();
 
     [SerializeField]
     private GrabMethods grabMethod;
@@ -30,6 +49,9 @@ public class Insok_XRGrabControl : MonoBehaviour
     [SerializeField]
     private LayerMask grabbingLayer;
 
+    [SerializeField]
+    private LayerMask triggerLayer;
+
     [HideInInspector] public bool isGrabbing = false;
     [HideInInspector] public bool isHovering = false;
 
@@ -38,6 +60,19 @@ public class Insok_XRGrabControl : MonoBehaviour
     // Original parent from grabbed object and grab-transform parent
     private Transform originalGrabObjTransformParent;
     [SerializeField] private Transform grabTransformParent;
+
+    public static Insok_XRGrabControl InstanceRight;
+    public static Insok_XRGrabControl InstanceLeft;
+
+    private void Awake()
+    {
+        if (handSide == HandSide.Right)
+        {
+            InstanceRight = this;
+        }
+        if (handSide == HandSide.Left)
+            InstanceLeft = this;
+    }
 
     private void Update()
     {
@@ -137,8 +172,18 @@ public class Insok_XRGrabControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Check whether hand enters trigger zone
+        if (triggerLayer.HasLayer(other.gameObject.layer))
+        {
+            TriggerEnterEvent.Invoke(other);
+        }
+
+
+        // Check whether hand is grabbing an object
         if (grabbingLayer.HasLayer(other.gameObject.layer))
         {
+            GrabEnterEvent?.Invoke(other);
+
             hoverObject = other.gameObject.transform.parent.gameObject;
             isHovering = true;
         }
@@ -146,12 +191,21 @@ public class Insok_XRGrabControl : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        // Check whether hand enters trigger zone
+        if (triggerLayer.HasLayer(other.gameObject.layer))
+        {
+            TriggerExitEvent?.Invoke(other);
+        }
+
+        // Check whether hand is dropping grabbed object
         if (hoverObject != null)
         {
             if (grabbingLayer.HasLayer(other.gameObject.layer))
             {
                 if (hoverObject.Equals(other.gameObject.transform.parent.gameObject))
                 {
+                    GrabExitEvent?.Invoke(other);
+
                     hoverObject = null;
                     isHovering = false;
                 }

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Disable the "Field not assigned" warnings
+#pragma warning disable 0649
+
 public class HandPerformance : MonoBehaviour
 {
     [SerializeField] private Transform LocalAvatar;
