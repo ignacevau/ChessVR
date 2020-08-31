@@ -19,6 +19,9 @@ public class TileFX : MonoBehaviour
         // Not hovering yet
         if (!hovering)
         {
+            // Default value should always be false
+            isCoordAllowed = false;
+
             if (Data.grabbedObject != null)
             {
                 if (Data.grabbedObject.CompareTag("ChessPiece"))
