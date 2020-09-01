@@ -15,4 +15,9 @@ public class Main : MonoBehaviour
     {
         customStart.Invoke();
     }
+
+    public void HelloWorld()
+    {
+        Debug.Log("Hello World");
+    }
 }
