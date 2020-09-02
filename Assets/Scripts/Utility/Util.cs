@@ -15,7 +15,7 @@ namespace Util
 
     public class Util
     {
-        public static string FEN_StartNotation = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+        //public static string FEN_StartNotation = ;
         public static string[] AllowedStartMoves = new string[] { "a2a3", "a2a4", "b2b3", "b2b4", "c2c3", "c2c4", "d2d3", "d2d4", "e2e3", "e2e4", "f2f3", "f2f4", "g2g3", "g2g4", "h2h3", "h2h4", "b1c3", "b1a3", "g1h3", "g1f3" };
         public static int StockFishDepth = 10;
 

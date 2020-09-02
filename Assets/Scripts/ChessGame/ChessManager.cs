@@ -128,7 +128,7 @@ public class ChessManager : MonoBehaviour, ICustomStart
 
     private void ResetGameData()
     {
-        UpdateGameData(Util.Util.FEN_StartNotation, Util.Util.AllowedStartMoves);
+        UpdateGameData(Data.StartFenNotation, Util.Util.AllowedStartMoves);
     }
 
     void SpawnPiece(GameObject prefab, Coord coords, float rot, float yRot = 0)

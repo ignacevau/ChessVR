@@ -16,6 +16,8 @@ namespace GlobalData
 		public static float ScalePolesBias { get; } = 1.05f;
 		public static GameObject grabbedObject { get; set; }
 
+		public static string StartFenNotation = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+
 
 		#region RayPointerSettings
 		public static class RayPointerSettings

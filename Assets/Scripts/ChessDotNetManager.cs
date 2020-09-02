@@ -7,6 +7,7 @@ using static Util.Util;
 using System.Security.Cryptography;
 using static ChessGameExec;
 using System;
+using GlobalData;
 
 public class ChessDotNetManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class ChessDotNetManager : MonoBehaviour
 
     public static void StartNewGame()
     {
-        game = new ChessGame();
+        game = new ChessGame(Data.StartFenNotation);
     }
 
     public static List<string> GetMoves()
