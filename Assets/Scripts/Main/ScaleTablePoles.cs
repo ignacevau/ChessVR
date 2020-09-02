@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GlobalData;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,10 +8,8 @@ using UnityEngine;
 
 public class ScaleTablePoles : MonoBehaviour
 {
-    [SerializeField] private float ScaleFactor;
-
     public void ScalePoles(float amount)
     {
-        transform.localScale += Vector3.forward * amount * ScaleFactor;
+        transform.localScale = Vector3.forward * Data.ScalePolesBias + new Vector3(1, 1, 0) + Vector3.forward * amount * Data.ScalePolesFactor;
     }
 }

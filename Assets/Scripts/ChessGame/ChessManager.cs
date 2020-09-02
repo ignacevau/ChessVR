@@ -10,6 +10,8 @@ using static Util.Util;
 
 public class ChessManager : MonoBehaviour, ICustomStart
 {
+    public static ChessManager Instance;
+
     // First is horizontal, second vertical  -->  usage is: Board[x][y]
     public static ChessPiece[][] Board =
         {
@@ -50,7 +52,7 @@ public class ChessManager : MonoBehaviour, ICustomStart
     private float BoardSize;
 
     private static float tileSize;
-    public static Vector3 boardPos;
+    public Vector3 boardPos;
 
     //VoiceManager VoiceMgr;
     //[SerializeField] AudioController AudioMgr;
@@ -63,6 +65,7 @@ public class ChessManager : MonoBehaviour, ICustomStart
 
     private void Awake()
     {
+        Instance = this;
         //VoiceMgr = GetComponent<VoiceManager>();
         //AudioMgr = GetComponent<AudioController>();
     }
@@ -72,12 +75,28 @@ public class ChessManager : MonoBehaviour, ICustomStart
         BoardSize = Mathf.Abs(LeftBottomBoard.position.x - RightBottomBoard.position.x);
 
         tileSize = BoardSize / 8;
-        boardPos = LeftBottomBoard.position;
 
         SetupBoard();
         ResetGameData();
 
         //VoiceMgr.MoveRecognizer.Start();
+    }
+
+    // Called after changing the table height
+    public void UpdateBoardPos()
+    {
+        boardPos = LeftBottomBoard.position;
+    }
+
+    public void RestoreAllPieces()
+    {
+        foreach (ChessPiece[] row in Board)
+        {
+            foreach (ChessPiece piece in row)
+            {
+                piece?.UpdatePieceHeight();
+            }
+        }
     }
 
     private void SetupBoard()
@@ -123,7 +142,7 @@ public class ChessManager : MonoBehaviour, ICustomStart
 
     public static Coord GetCoordFromWorldPos(Vector3 worldPos)
     {
-        Vector3 pos = worldPos - boardPos;
+        Vector3 pos = worldPos - Instance.boardPos;
         int x = Mathf.FloorToInt((pos.x / (tileSize * 8)) * 8);
         int y = Mathf.FloorToInt((pos.z / (tileSize * 8)) * 8);
 
@@ -132,7 +151,7 @@ public class ChessManager : MonoBehaviour, ICustomStart
 
     public static Vector3 GetWorldPosFromCoord(Coord coord)
     {
-        Vector3 pos = boardPos + (Vector3.right * (2 * coord.x + 1) * tileSize / 2) + (Vector3.forward * (2 * coord.y + 1) * tileSize / 2);
+        Vector3 pos = Instance.boardPos + (Vector3.right * (2 * coord.x + 1) * tileSize / 2) + (Vector3.forward * (2 * coord.y + 1) * tileSize / 2);
         return pos;
     }
 

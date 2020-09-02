@@ -95,7 +95,7 @@ public class ChessPiece : MonoBehaviour
     void SnapToBoard()
     {
         transform.rotation = Quaternion.Euler(-90, 0, 0);
-        transform.position = new Vector3(transform.position.x, ChessManager.boardPos.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x, ChessManager.Instance.boardPos.y, transform.position.z);
 
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -166,7 +166,7 @@ public class ChessPiece : MonoBehaviour
         }
     }
 
-    void ReturnToPlace()
+    public void ReturnToPlace()
     {
         Vector3 originalPos = transform.position;
         Quaternion originalRot = transform.rotation;
@@ -177,7 +177,17 @@ public class ChessPiece : MonoBehaviour
         //transform.rotation = Quaternion.Euler(Mathf.Clamp(transform.eulerAngles.x, -60, -120), Mathf.Clamp(transform.eulerAngles.y, -30, 30), transform.eulerAngles.z);
     }
 
-    void RestorePiece()
+    // Called after setting table height
+    public void UpdatePieceHeight()
+    {
+        Unlock();
+
+        transform.position = new Vector3(transform.position.x, ChessManager.Instance.boardPos.y, transform.position.z);
+
+        Lock();
+    }
+
+    public void RestorePiece()
     {
         Coroutine fadeRestorePiece = StartCoroutine(FadeRestorePiece());
     }

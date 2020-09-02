@@ -10,7 +10,10 @@ namespace GlobalData
 		public static int TableHeight { get; set; } = 2;
 		public static int maxTableHeight { get; } = 5;
 		public static int minTableHeight { get; } = 0;
-		public static float MoveTableFactor { get; } = 0.1f;
+		public static float MoveTableFactor { get; } = 0.165f;
+
+		public static float ScalePolesFactor { get; } = 3.8f;
+		public static float ScalePolesBias { get; } = 1.05f;
 		public static GameObject grabbedObject { get; set; }
 
 

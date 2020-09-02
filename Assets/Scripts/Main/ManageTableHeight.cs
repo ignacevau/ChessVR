@@ -14,7 +14,30 @@ public class ManageTableHeight : MonoBehaviour, ICustomStart
 
     public void CustomStart()
     {
-        TableTop.transform.position += Vector3.up * Data.TableHeight * Data.MoveTableFactor;
+        UpdateTableHeight();
+    }
+
+    private void UpdateTableHeight()
+    {
+        TableTop.transform.localPosition = Vector3.up * Data.TableHeight * Data.MoveTableFactor;
         TablePoles.ScalePoles(Data.TableHeight * Data.MoveTableFactor);
+
+        ChessManager.Instance.UpdateBoardPos();
+        ChessManager.Instance.RestoreAllPieces();
+    }
+
+    public void TableUp()
+    {
+        Data.TableHeight = Mathf.Clamp(Data.TableHeight + 1, Data.minTableHeight, Data.maxTableHeight);
+        UpdateTableHeight();
+
+        ChessManager.Instance.UpdateBoardPos();
+        ChessManager.Instance.RestoreAllPieces();
+    }
+
+    public void TableDown()
+    {
+        Data.TableHeight = Mathf.Clamp(Data.TableHeight - 1, Data.minTableHeight, Data.maxTableHeight);
+        UpdateTableHeight();
     }
 }

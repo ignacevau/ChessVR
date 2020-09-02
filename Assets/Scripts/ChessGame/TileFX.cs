@@ -29,7 +29,7 @@ public class TileFX : MonoBehaviour
             {
                 if (Data.grabbedObject.CompareTag("ChessPiece"))
                 {
-                    if (Data.grabbedObject.transform.position.y - ChessManager.boardPos.y < TileSelectionShowHeight)
+                    if (Data.grabbedObject.transform.position.y - ChessManager.Instance.boardPos.y < TileSelectionShowHeight)
                     {
                         Coord grabbedCoords = ChessManager.GetCoordFromWorldPos(Data.grabbedObject.transform.position);
 
@@ -61,7 +61,7 @@ public class TileFX : MonoBehaviour
             {
                 if (Data.grabbedObject.CompareTag("ChessPiece"))
                 {
-                    if (Data.grabbedObject.transform.position.y - ChessManager.boardPos.y < TileSelectionShowHeight)
+                    if (Data.grabbedObject.transform.position.y - ChessManager.Instance.boardPos.y < TileSelectionShowHeight)
                     {
                         Coord grabbedCoords = ChessManager.GetCoordFromWorldPos(Data.grabbedObject.transform.position);
 
